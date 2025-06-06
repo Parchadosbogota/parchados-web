@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,36 +12,70 @@
       background-color: #FFF3E0;
       color: #5D4037;
     }
-    header {
+
+    header.header-bar {
       background: linear-gradient(to right, #F9A825, #FB8C00, #EF5350);
       color: white;
+      padding: 10px 20px;
+    }
+
+    .logo-social {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 15px;
+    }
+
+    .logo {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .social-icons a {
+      margin-left: 15px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      height: 30px;
+      width: 30px;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      filter: brightness(0.8) invert(0.7);
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: 0 auto 20px;
       text-align: center;
-      padding: 0;
+      font-size: 1.1em;
+      line-height: 1.4;
     }
-    header img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
-    }
-    header .intro {
-      padding: 20px;
-    }
-    header h1 {
-      font-family: 'Caveat', cursive;
-      font-size: 3em;
-      margin: 10px 0;
-    }
+
     section {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
+
     .activity-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
+    
+    .highlight-date {
+      background-color: #FFF59D; /* Amarillo suave */
+      color: #BF360C;            /* Marrón rojizo oscuro */
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-weight: 600;
+}
+
     .activity {
       background: white;
       border-left: 6px solid #F9A825;
@@ -50,6 +83,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .activity img {
       width: 100%;
       height: 180px;
@@ -57,6 +91,7 @@
       border-radius: 8px;
       margin-bottom: 10px;
     }
+
     .button {
       display: inline-block;
       background-color: #F9A825;
@@ -67,6 +102,7 @@
       font-weight: 600;
       margin-top: 10px;
     }
+
     footer {
       background-color: #3949AB;
       color: white;
@@ -74,14 +110,67 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    /* --- ESTILOS PARA CELULARES --- */
+    @media (max-width: 600px) {
+      .logo-social {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .intro {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+
+      .activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .activity {
+        padding: 12px;
+      }
+
+      .activity img {
+        height: 120px;
+      }
+
+      .activity h3 {
+        font-size: 1em;
+        margin: 8px 0;
+      }
+
+      .activity p {
+        font-size: 0.9em;
+        line-height: 1.3;
+      }
+
+      .button {
+        padding: 8px 16px;
+        font-size: 0.85em;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="img/baner.jpg" alt="Banner de Parchados" />
+  <header class="header-bar">
+    <div class="logo-social">
+      <img src="img/logo.png" alt="Logo de Parchados" class="logo" />
+      <div class="social-icons">
+        <a href="https://wa.me/573202340522" target="_blank" title="WhatsApp">
+          <img src="img/icon_whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.instagram.com/parchadosbogota" target="_blank" title="Instagram">
+          <img src="img/icon_instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@parchadosbogota" target="_blank" title="TikTok">
+          <img src="img/icon_tiktok.png" alt="TikTok" />
+        </a>
+      </div>
+    </div>
     <div class="intro">
       <p>Planes reales, buena vibra y naturaleza sin protocolos 🌅</p>
-      <p>Nos conectamos a través de la aventura, el senderismo, la naturaluza, los deportes extremos y los buenos momentos.</p>
+      <p>Nos conectamos a través de la aventura, el senderismo, la naturaleza, los deportes extremos y los buenos momentos.</p>
       <p>Vivimos la vida al aire libre, con actitud relajada y nuevos parches en cada salida.</p>
     </div>
   </header>
@@ -93,30 +182,30 @@
       <div class="activity">
         <img src="img/senderismo_pet.jpg" alt="Caminata Pet Friendly">
         <h3>⛰️ Cueva del Indio y Peñas Blancas – Pet Friendly</h3>
-        <p><strong>Fecha:</strong> Sábado 31 de mayo<br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $54.900<br><strong>Lugar:</strong> Terminal Norte</p>
+        <p><strong>Fecha:</strong> <span class="highlight-date">Sábado 31 de mayo</span><br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $54.900<br><strong>Punto de encuentro:</strong> Terminal Norte</p>
         <p>13 km aprox. | Dificultad: 3.5/5 | Clima: Frío | Altura: 2.600-2.900 msnm</p>
-        <a href=" https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Tocancipa" class="button">Preguntar por el plan</a>
+        <a href="https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Tocancipa" class="button">Preguntar por el plan</a>
       </div>
       <div class="activity">
-        <img src="img/senderismo_canyoning.jpg" alt="Canyoning en Sasaima">
+        <img src="img/canyoning.png" alt="Canyoning en Sasaima">
         <h3>🏞️ Caminata y Canyoning en Sasaima</h3>
-        <p><strong>Fecha:</strong> Domingo 15 de junio<br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $64.900<br><strong>Lugar:</strong> Modelia (Los tres elefantes)</p>
+        <p><strong>Fecha:</strong><span class="highlight-date">domingo 15 de junio</span><br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $64.900 sin tranporte<br> $100.000 con transporte<br><strong>Punto de encuentro:</strong> Modelia (Los tres elefantes)</p>
         <p>4.5 km caminata + 1.5 km barranquismo | Dificultad: 3/5 | Clima cálido</p>
-        <a href=" https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Sasaima" class="button">Preguntar por el plan</a>
+        <a href="https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Sasaima" class="button">Preguntar por el plan</a>
+      </div>
+        <div class="activity">
+        <img src="img/senderismo.jpg" alt="Suesca escalada">
+        <h3>🧗 Caminata y escalada Rocas de Suesca</h3>
+        <p><strong>Fecha:</strong><span class="highlight-date">domingo 22 de junio</span><br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $85.000 (escalada no incluida)<br><strong>Punto de encuentro:</strong> Portal 80</p>
+        <p>9 km aprox. | Dificultad: 2.5/5 | Clima: Frío</p>
+        <a href="https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Suesca" class="button">Preguntar por el plan</a>
       </div>
       <div class="activity">
         <img src="img/torrentismo.jpg" alt="Tobia integrador">
         <h3>🌊 Parchemos a Tobia Cundinamarca</h3>
-        <p><strong>Fecha:</strong> Domingo 22 de junio<br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> Según actividad<br><strong>Lugar:</strong> Portal 80</p>
+        <p><strong>Fecha:</strong><span class="highlight-date">domingo 28 de junio</span><br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> Según actividad<br><strong>Punto de encuentro:</strong> Portal 80</p>
         <p>2 días 1 noche | Trekking, piscina, torrentismo y más | Clima cálido</p>
-        <a href=" https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Tobia" class="button">Preguntar por el plan</a>
-      </div>
-      <div class="activity">
-        <img src="img/senderismo.jpg" alt="Suesca escalada">
-        <h3>🧗 Caminata y escalada Rocas de Suesca</h3>
-        <p><strong>Fecha:</strong> Sábado 28 de junio<br><strong>Hora:</strong> 6:00 a.m.<br><strong>Costo:</strong> $85.000 (escalada no incluida)<br><strong>Lugar:</strong> Portal 80</p>
-        <p>9 km aprox. | Dificultad: 2.5/5 | Clima: Frío</p>
-        <a href=" https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Suesca" class="button">Preguntar por el plan</a>
+        <a href="https://wa.me/573202340522?text=hola%21%20para%20info%20de%20la%20actividad%20de%20Tobia" class="button">Preguntar por el plan</a>
       </div>
     </div>
   </section>
@@ -127,29 +216,29 @@
     <p>🧭 Únete y salgamos de la rutina con un buen parche.</p>
     <a href="https://chat.whatsapp.com/DVwfoAToaKi2gcLAG2YTbS" class="button">Ir al grupo de WhatsApp</a>
   </section>
-<section>
-  <h2>👤 Sobre mí</h2>
-  <div style="font-size: 1.05em; line-height: 1.4;">
-    <p>Hola, soy <strong>Cristian Guzman</strong>, caminante, manager, guía líder de <strong>Parchados</strong>. Creo en la conexión real, en los planes al aire libre, en la buena vibra y en conocer personas increíbles mientras exploramos juntos. Estoy aquí para guiarte, ayudarte y hacer que cada experiencia sea inolvidable 🌄🧭</p>
 
-    <h3>📲 Mis redes personales:</h3>
-    <p>
-      <a href="https://www.instagram.com/cristianguzman_oficial?igsh=YXg1d3R6OW92YnYz"_blank">📷 Instagram</a> &nbsp;|&nbsp;
-      <a href="https://www.facebook.com/share/19MqtoE8mH/"_blank">🔵 Facebook</a> &nbsp;|&nbsp;
-      <a href="https://www.tiktok.com/@rincondelanaturaleza?_t=ZS-8wrPYxJc2QK&_r=1" target="_blank">🎥 TikTok</a>
-    </p>
+  <section>
+    <h2>👤 Sobre mí</h2>
+    <div style="font-size: 1.05em; line-height: 1.4;">
+      <p>Hola, soy <strong>Cristian Guzman</strong>, caminante, manager, guía líder de <strong>Parchados</strong>. Creo en la conexión real, en los planes al aire libre, en la buena vibra y en conocer personas increíbles mientras exploramos juntos. Estoy aquí para guiarte, ayudarte y hacer que cada experiencia sea inolvidable 🌄🧭</p>
 
-    <h3>🌟 Redes de Parchados:</h3>
-    <p>
-      <a href="https://www.instagram.com/parchadosbogota?igsh=NDVidDQ0eWdmNW5l"_blank">📷 Instagram</a> &nbsp;|&nbsp;
-      <a href="https://www.tiktok.com/@parchadosbogota?_t=ZS-8wrPR1y0QS2&_r=1" target="_blank">🎥 TikTok</a>      
-    </p>
-  </div>
-</section>
+      <h3>📲 Mis redes personales:</h3>
+      <p>
+        <a href="https://www.instagram.com/cristianguzman_oficial" target="_blank">📷 Instagram</a> &nbsp;|&nbsp;
+        <a href="https://www.facebook.com/share/19MqtoE8mH/" target="_blank">🔵 Facebook</a> &nbsp;|&nbsp;
+        <a href="https://www.tiktok.com/@rincondelanaturaleza" target="_blank">🎥 TikTok</a>
+      </p>
 
+      <h3>🌟 Redes de Parchados:</h3>
+      <p>
+        <a href="https://www.instagram.com/parchadosbogota" target="_blank">📷 Instagram</a> &nbsp;|&nbsp;
+        <a href="https://www.tiktok.com/@parchadosbogota" target="_blank">🎥 TikTok</a>      
+      </p>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Parchados - sirmpre conociendo nuevos lugares y personas increibles 🌇</p>
+    <p>© 2025 Parchados - siempre conociendo nuevos lugares y personas increíbles 🌇</p>
   </footer>
 </body>
 </html>
