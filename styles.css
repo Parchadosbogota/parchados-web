@@ -1,0 +1,298 @@
+  /* --- ESTILOS GENERALES --- */
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #FFF8E1;
+      color: #5D4037;
+    }
+
+    /* --- HERO HEADER --- */
+    header.hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/portada.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .logo-container img {
+      height: 70px;
+      width: auto;
+      background: rgba(255,255,255,0.9);
+      padding: 5px;
+      border-radius: 20px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+    .social-icons a img {
+      width: 35px;
+      height: 35px;
+      margin: 0 10px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+      transition: transform 0.3s;
+    }
+    .social-icons a img:hover { transform: scale(1.2); }
+
+    .intro-text h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 3em;
+      margin: 10px 0;
+      color: #FFEB3B;
+    }
+    .intro-text p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+
+    .cta-button {
+      background-color: #FF5722;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1em;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+      transition: transform 0.2s;
+    }
+    .cta-button:hover { transform: scale(1.05); background-color: #E64A19; }
+
+    /* --- MENÚ DE NAVEGACIÓN (STICKY) --- */
+    .month-nav-container {
+      background-color: #F9A825;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    }
+
+    .month-nav {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      scrollbar-width: none;
+      align-items: center;
+    }
+    .month-nav::-webkit-scrollbar { display: none; }
+
+    .month-btn {
+      background-color: rgba(255,255,255,0.25);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+
+    .month-btn:hover { background-color: rgba(255,255,255,0.5); }
+    
+    .month-btn.active {
+      background-color: white;
+      color: #F9A825;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transform: scale(1.05);
+    }
+
+    /* ESTILO ESPECIAL PARA EL BOTÓN TOP */
+    .btn-top {
+      background: #D32F2F;
+      color: white;
+      border: 2px solid #FFCDD2;
+    }
+    .btn-top.active {
+      background: #B71C1C !important;
+      color: #FFEB3B !important;
+      border-color: #FFEB3B;
+    }
+
+    /* --- LAYOUT DE ACTIVIDADES --- */
+    section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    /* Lógica de filtrado */
+    .filterDiv { display: none; } /* Oculto por defecto */
+    
+    /* Clase auxiliar para mostrar elementos */
+    .show { display: flex; animation: zoomIn 0.5s; }
+
+    @keyframes zoomIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    /* --- TITULOS DE MES --- */
+    .month-title {
+      grid-column: 1 / -1; 
+      text-align: center;
+      padding: 40px 0 20px;
+      border-bottom: 2px dashed #F9A825;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    /* El titulo del mes también debe reaccionar a show/hide, por defecto display block si tiene show */
+    .month-title.show { display: block; }
+
+    .month-title h2 {
+      color: #E65100;
+      text-transform: uppercase;
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    /* --- TARJETAS --- */
+    .activity {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      flex-direction: column;
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .activity:hover { transform: translateY(-5px); }
+
+    .activity img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    
+    .card-content h3 { margin: 0 0 10px; color: #333; }
+    .card-content p { margin: 5px 0; font-size: 0.95em; line-height: 1.4; color: #666; }
+    
+    .price-tag {
+      background: #E0F7FA;
+      color: #006064;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9em;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .buttons-row { margin-top: auto; padding-top: 15px; display: flex; gap: 10px; }
+    
+    .btn-small {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .btn-info { background: #f0f0f0; color: #555; }
+    .btn-buy { background: #FF5722; color: white; }
+
+    /* --- MODAL (VENTANA EMERGENTE) --- */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed; z-index: 2000; left: 0; top: 0;
+      width: 100%; height: 100%; overflow: auto;
+      background-color: rgba(0,0,0,0.6); /* Fondo oscuro transparente */
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 0;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: slideDown 0.4s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    @keyframes slideDown {
+      from {top: -50px; opacity: 0;}
+      to {top: 0; opacity: 1;}
+    }
+
+    .close-modal {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .close-modal:hover { color: #000; }
+
+    .modal-header {
+      background: #F9A825;
+      padding: 20px;
+      border-radius: 15px 15px 0 0;
+      color: white;
+    }
+    .modal-header h2 { margin: 0; font-size: 1.5em; }
+
+    .modal-body { padding: 25px; line-height: 1.6; color: #444; }
+    .modal-body ul { padding-left: 20px; }
+    .modal-body li { margin-bottom: 8px; }
+
+    /* Ocultar detalles dentro de la tarjeta normal */
+    .hidden-details { display: none; }
+
+    /* --- ESTILOS PARA LAS "GRANDES AVENTURAS" (DESTACADOS) --- */
+    .activity.destacado {
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    
+    .badge-top {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #FFD700;
+      color: #B71C1C;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.8em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    footer {
+      background-color: #263238;
+      color: #CFD8DC;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+       .intro-text h1 { font-size: 2em; }
+       .month-title h2 { font-size: 1.4em; }
+       .activity img { height: 160px; }
+    }
